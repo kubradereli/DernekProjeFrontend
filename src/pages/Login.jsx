@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Form, Button, Input, Segment, Grid, Divider, Icon } from 'semantic-ui-react'
 
 export default function Login() {
@@ -13,14 +14,12 @@ export default function Login() {
                             <Divider />
                             <br/>
                             <Form.Field >
-                                {/* <label><h4>Kullanıcı Adı</h4></label> */}
                                 <Input icon='users' iconPosition='left' size='big' placeholder='Kullanı adı giriniz...'/>
                             </Form.Field>
                             <Form.Field>
-                                {/* <label><h4>Şifre</h4></label> */}
                                 <Input icon='key' iconPosition='left' size='big' placeholder='Şifre giriniz...' />
                             </Form.Field>
-                            <Button size='big' color='violet' type='submit'>Giriş Yap</Button>
+                            <Button size='big' color='violet' type='submit' as={NavLink} to="/admin">Giriş Yap</Button>
                         </Form>
                     </Segment>
                 </Grid.Column>

@@ -8,7 +8,7 @@ export default function NewsList() {
 
     useEffect(() => {
         let newsService = new NewsService()
-        newsService.getNews().then(result => setNews(result.data))
+        newsService.getNews().then(result => setNews(result.data.data))
     },[])
 
     return (
@@ -27,7 +27,6 @@ export default function NewsList() {
                         <Table.HeaderCell>Haber Linki</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
-
                 <Table.Body>
                     {news.map((news) => (
                         <Table.Row key={news.id}>

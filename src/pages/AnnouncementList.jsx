@@ -9,7 +9,7 @@ export default function AnnouncementList() {
 
     useEffect(() => {
         let announcemetService = new AnnouncementService()
-        announcemetService.getAnnouncements().then(result => setAnouncements(result.data))
+        announcemetService.getAnnouncements().then(result => setAnouncements(result.data.data))
     },[])
 
     return (
