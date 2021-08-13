@@ -1,7 +1,7 @@
+import moment from 'moment'
 import React, { useState, useEffect } from 'react'
 import { Divider, Item, Label } from 'semantic-ui-react'
 import AnnouncementService from '../services/announcementService'
-import resim from '../images/sky.jpg'
 
 export default function AnnouncementList() {
 
@@ -19,10 +19,10 @@ export default function AnnouncementList() {
             <Item.Group divided>
                 {announcements.map((announcement) => (
                     <Item key={announcement.id}>
-                        <Item.Image size='medium' src={resim}/>
+                        <Item.Image size='medium'src={announcement.image}/>                      
                         <Item.Content>
                             <Item.Header>{announcement.topic}</Item.Header>
-                            <Item.Meta>{announcement.validityDate}</Item.Meta>
+                            <Item.Meta>{moment(announcement.validityDate).format("DD-MM-YYYY")}</Item.Meta>
                             <Item.Description>
                                 <Label>Açıklama :</Label>
                                 {announcement.content}

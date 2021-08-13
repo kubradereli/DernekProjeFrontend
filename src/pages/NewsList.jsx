@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Table, Popup } from 'semantic-ui-react'
 import NewsService from '../services/newsService'
+import moment from "moment"
 
 export default function NewsList() {
 
@@ -36,14 +37,14 @@ export default function NewsList() {
                                     content={news.content}
                                     on='click'
                                     pinned
-                                    wide
+                                    wide='very'
                                     inverted
                                     trigger={<Button inverted color='violet' content='Detay' />}
                                     position='bottom left'
                                 />
                             </Table.Cell>
-                            <Table.Cell>{news.validityDate}</Table.Cell>
-                            <Table.Cell><a href={news.newsLink} target="_blank">{news.newsLink}</a></Table.Cell>
+                            <Table.Cell>{moment(news.validityDate).format("DD-MM-YYYY")}</Table.Cell>
+                            <Table.Cell><a href={news.newsLink}>{news.newsLink}</a></Table.Cell>
                         </Table.Row>
                     ))}
                 </Table.Body>

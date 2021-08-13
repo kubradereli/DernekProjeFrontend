@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { Dropdown, Menu, Container } from 'semantic-ui-react'
+import { Dropdown, Menu, Container, Icon } from 'semantic-ui-react'
 import SignedIn from './SignedIn'
 import SignedOut from './SignedOut'
 
 export default function Navi() {
-    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const history = useHistory()
     
     function handleSignOut(params) {
@@ -22,7 +22,7 @@ export default function Navi() {
             <Menu inverted fixed='top' size='large'>
                 <Container>
                     <Menu.Item>
-                        <h1 style={{color:"darkviolet"}}>DERNEK</h1>
+                        <Icon size="big" color="violet" disabled name='star outline' />
                     </Menu.Item>
                     <Menu.Item as={Link} to="/">Anasayfa</Menu.Item>
                     <Menu.Menu position='right'>

@@ -4,8 +4,8 @@ import { Card, Icon, Grid, Button } from 'semantic-ui-react'
 
 export default function AdminHomePage() {
     return (
-        <div style={{marginTop:"150px"}}>
-            <Grid centered padded>
+        <div style={{ marginTop: "150px" }}>
+            <Grid centered>
                 <Card.Group itemsPerRow={2}>
                     <Card>
                         <Button as={NavLink} to="/newsoperations">
@@ -17,8 +17,8 @@ export default function AdminHomePage() {
                             <Card.Description>Haber Silme ve Güncelleme İşlemleri</Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                                <Icon name='newspaper' color='violet' />
-                                22 Haber
+                            <Icon name='newspaper' color='violet' />
+                            22 Haber
                         </Card.Content>
                     </Card>
                     <Card>
@@ -31,8 +31,8 @@ export default function AdminHomePage() {
                             <Card.Description>Duyuru Silme ve Güncelleme İşlemleri</Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                                <Icon name='announcement' color='violet' />
-                                14 Duyuru
+                            <Icon name='announcement' color='violet' />
+                            14 Duyuru
                         </Card.Content>
                     </Card>
                 </Card.Group>
