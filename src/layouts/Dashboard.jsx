@@ -9,6 +9,8 @@ import AnnouncementOperations from '../pages/AnnouncementOperations'
 import Login from '../pages/Login'
 import AddNews from '../pages/AddNews'
 import AddAnnouncement from '../pages/AddAnnouncement'
+import NewsDetail from '../pages/NewsDetail'
+import AnnouncementDetail from '../pages/AnnouncementDetail'
 
 export default function Dashboard() {
     return (
@@ -16,12 +18,14 @@ export default function Dashboard() {
             <Route exact path="/" component={HomePage}/>
             <Route path="/admin" component={AdminHomePage}/>
             <Route path="/login" component={Login}/>
-            <Route path="/news" component={NewsList}/>
+            <Route exact path="/news" component={NewsList}/>
             <Route path="/newsoperations" component={NewsOperations}/>
             <Route path="/addnews" component={AddNews}/>
-            <Route path="/announcement" component={AnnouncementList}/>
+            <Route path="/news/:topic" component={NewsDetail}/>
+            <Route exact path="/announcement" component={AnnouncementList}/>
             <Route path="/announcementoperations" component={AnnouncementOperations}/>
             <Route path="/addannouncement" component={AddAnnouncement}/>
+            <Route path="/announcement/:topic" component={AnnouncementDetail}/>
         </div>
     )
 }

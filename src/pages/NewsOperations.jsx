@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Table, Icon, Grid } from 'semantic-ui-react'
 import NewsService from '../services/newsService'
 import moment from 'moment'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function NewsOperations() {
 
@@ -15,7 +15,14 @@ export default function NewsOperations() {
 
     let newsService = new NewsService()
     let newsDelete = (id) => {
-        newsService.delete(id)
+        newsService.delete(id).then((result)=> {
+            alert("HABER SİLİNDİ")
+            refresh()
+        })
+    }
+
+    function refresh(){
+        window.location.reload()
     }
 
     return (
@@ -34,7 +41,7 @@ export default function NewsOperations() {
                                     <Table.HeaderCell>#</Table.HeaderCell>
                                     <Table.HeaderCell>Konu</Table.HeaderCell>
                                     <Table.HeaderCell>Geçerlilik Tarihi</Table.HeaderCell>
-                                    <Table.HeaderCell>GÜNCELLE</Table.HeaderCell>
+                                    <Table.HeaderCell>DETAY</Table.HeaderCell>
                                     <Table.HeaderCell>SİL</Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
@@ -44,7 +51,7 @@ export default function NewsOperations() {
                                         <Table.Cell>{news.id}</Table.Cell>
                                         <Table.Cell>{news.topic}</Table.Cell>
                                         <Table.Cell>{moment(news.validityDate).format("DD-MM-YYYY")}</Table.Cell>
-                                        <Table.Cell><Button color="green">Güncelle</Button></Table.Cell>
+                                        <Table.Cell><Button color="green" as={Link} to={`/news/${news.topic}`}>Haber Detayı</Button></Table.Cell>
                                         <Table.Cell><Button color="red" onClick={() => newsDelete(news.id)}>Sil</Button></Table.Cell>
                                     </Table.Row>
                                 ))}

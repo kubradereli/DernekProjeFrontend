@@ -29,7 +29,7 @@ export default function Navi() {
                         <Dropdown item text='Dil'>
                             <Dropdown.Menu>
                                 <Dropdown.Item>Türkçe</Dropdown.Item>
-                                <Dropdown.Item>İngilizce</Dropdown.Item>
+                                <Dropdown.Item>İngilizce(Eklenecek)</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Menu.Menu>

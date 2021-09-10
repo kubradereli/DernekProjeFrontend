@@ -1,7 +1,7 @@
-import moment from 'moment'
 import React, { useState, useEffect } from 'react'
 import { Divider, Item, Label } from 'semantic-ui-react'
 import AnnouncementService from '../services/announcementService'
+import moment from 'moment'
 
 export default function AnnouncementList() {
 

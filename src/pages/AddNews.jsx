@@ -5,7 +5,7 @@ import { Formik } from 'formik'
 import DernekTextInput from '../utilities/customFormControls/DernekTextInput'
 import DernekTextArea from '../utilities/customFormControls/DernekTextArea'
 import NewsService from '../services/newsService'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 export default function AddNews() {
     let newsService = new NewsService()
@@ -25,6 +25,12 @@ export default function AddNews() {
         newsLink: Yup.string().required("Haber linki eklemelisiniz.")
     })
 
+    const history = useHistory()
+
+    function backList() {
+        history.push("/newsoperations")
+    }
+
     return (
         <div>
             <Segment>
@@ -34,18 +40,11 @@ export default function AddNews() {
                     initialValues={initialValues}
                     validationSchema={schema}
                     onSubmit={(values) => {
-                        let newsInformation = {
-                            topic: values.topic,
-                            content: values.content,
-                            validityDate: values.validityDate,
-                            newsLink: values.newsLink
-                        }
-                        newsService.addNews(newsInformation).then((result) => {
-                            console.log(result.data.message)
-                            console.log(newsInformation)
+                        newsService.addNews(values.content, values.topic, values.newsLink).then((result) => {
+                            alert("HABER EKLENDİ.")
+                            backList()
                         })
-                    }
-                    }
+                    }}
                 >
                     {({ handleSubmit }) => (
                         <Form className="ui form" onSubmit={handleSubmit}>
